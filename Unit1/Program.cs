@@ -17,11 +17,12 @@ namespace WorkWithFiles
             try
             {
                 Console.WriteLine("Type directory");
-                string dirName = @"c:\test\";
-                /*dirName = Console.ReadLine();*/
+                
+                string dirName = Console.ReadLine();
 
                 DirectoryInfo dirInfo = new DirectoryInfo(dirName ?? string.Empty);
 
+               
                 if (dirInfo.Exists)
                 {
                     foreach (FileInfo file in dirInfo.GetFiles())
@@ -34,7 +35,7 @@ namespace WorkWithFiles
                         }
                         else
                         {
-                            Console.WriteLine("Files: {0} LastAccessTime: {1} Interval: {2}", file, file.LastAccessTime,
+                            Console.WriteLine("File: {0} LastAccessTime: {1} Interval: {2}", file, file.LastAccessTime,
                                 lastAccess);
                         }
                     }
