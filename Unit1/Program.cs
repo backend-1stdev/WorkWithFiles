@@ -16,9 +16,7 @@ namespace WorkWithFiles
 
             try
             {
-                Console.WriteLine("Type directory");
-                
-                string dirName = Console.ReadLine();
+                string dirName = @"c:/test/";
 
                 DirectoryInfo dirInfo = new DirectoryInfo(dirName ?? string.Empty);
 
@@ -28,7 +26,7 @@ namespace WorkWithFiles
                     {
                         var lastAccess = DateTime.Now - file.LastAccessTime;
 
-                        if (lastAccess > TimeSpan.FromMinutes(1))
+                        if (lastAccess > TimeSpan.FromMinutes(30))
                         {
                             file.Delete();
                         }
@@ -43,7 +41,7 @@ namespace WorkWithFiles
                     {
                         var lastAccess = DateTime.Now - dir.CreationTime;
 
-                        if (lastAccess > TimeSpan.FromMinutes(1))
+                        if (lastAccess > TimeSpan.FromMinutes(30))
                         {
                             dir.Delete();
                         }
